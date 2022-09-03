@@ -1,0 +1,18 @@
+.outline{
+    height: 40px;
+    width:100%;
+    border: 1px solid black;
+}
+.option-box{
+    height: 40px;
+    width: 33%;
+    background-color: aqua;
+    text-align: center;
+    align-content: center;
+    font-size: larger;
+    float: left;
+}
+.option-box:hover{
+    cursor: pointer;
+    background-color: #00c0c0;
+}
