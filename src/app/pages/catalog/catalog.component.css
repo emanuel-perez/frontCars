@@ -1,0 +1,14 @@
+.makeBox{
+    height: 50px;
+    width: 100px;
+    float: left;
+    align-items: center;
+    text-align:center ;
+}
+.catalogContainer{
+    width: 400px;
+    margin-top: 3%;
+}
+.makeBox:hover{
+    cursor: pointer;
+}
