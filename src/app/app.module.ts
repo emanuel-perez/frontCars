@@ -9,11 +9,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SearchComponent } from './pages/search/search.component';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
   {path:'catalog', component:CatalogComponent},
-  {path: 'login', component:LoginPageComponent}
+  {path: 'login', component:LoginPageComponent},
+  {path:'search', component:SearchComponent}
 ]
 
 @NgModule({
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     HomeComponent,
     HeaderComponent,
     CatalogComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
