@@ -1,1 +1,14 @@
 <h2>{{value}}</h2>
+<div>
+    <div *ngFor="let car of cars" class="box">
+        <div class="left-blank">
+
+        </div>
+        <div class="car-info" *ngIf="showAmount()">
+            <p>{{car.Year}}
+            {{car.Make}}
+            {{car.Model}} </p>
+            <p>{{car.Price}} </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.box{
+    height: 105px;
+    width: 1100px;
+    text-align: center;
+}
+.car-info{
+    height: 100px;
+    width: 500px;
+    float: left;
+    border: 1px solid black;
+    text-align: center;
+}
+.left-blank{
+    height:100px;
+    width: 100px;
+    float: left;
+    border: 1px solid white;
+}

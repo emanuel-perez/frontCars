@@ -24,5 +24,9 @@ export class DataService {
     const url = this.baseURL + '/catalog/makes';
     return this.http.get<any>(url,httpOptions);
   }
+  retrieveAllForMake(makeName:string){
+    const url = this.baseURL + '/catalog/make/' + makeName;
+    return this.http.get<any>(url,httpOptions);
+  }
 
 }
