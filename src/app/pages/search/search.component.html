@@ -1,14 +1,22 @@
 <h2>{{value}}</h2>
-<div>
-    <div *ngFor="let car of cars" class="box">
-        <div class="left-blank">
-
+<div class="container">
+    <div *ngFor="let car of cars">
+        <div *ngIf="validEntry(car.id)" class="car-info">
+            <div class="car-text">
+                {{car.Make}}
+                {{car.Model}}
+                {{car.Year}}
+            </div>
+            <div class="price-text">Price: {{car.Price}} </div>
+            <div class="info-text">
+                <p>Fuel Type: {{car.FuelType}} </p>
+                <p>Mileage: {{car.Mileage}} </p>
+                <p>Transmission: {{car.Transmission}} </p>
+            </div>
         </div>
-        <div class="car-info" *ngIf="showAmount()">
-            <p>{{car.Year}}
-            {{car.Make}}
-            {{car.Model}} </p>
-            <p>{{car.Price}} </p>
-        </div>
+    </div>
+    <div class="bottom">
+        <div (click)="next()" class="text">Next >></div>
+        <div (click)="back()" class="text">Back <<</div>
     </div>
 </div>

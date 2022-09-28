@@ -14,6 +14,10 @@ export class SearchComponent implements OnInit {
   searchValueSub!:Subscription;
   allCars!:Subscription;
   cars:any[] = [];
+  count:number = 0;
+  idArray:number[]=[];
+  low_t = 0;
+  high_t = 11;
 
   constructor(private uiService: UiService, private dataService:DataService) { 
 
@@ -25,12 +29,32 @@ export class SearchComponent implements OnInit {
     })
     this.allCars = this.dataService.retrieveAllForMake(this.value).subscribe(r => {
       this.cars = r;
-      console.log(this.cars);
+      var i = 0;
+      this.cars.forEach(r =>{
+        i = i + 1;
+        r.id = i;
+      })
+
+      //console.log(this.cars);
     })
   }
 
-  showAmount(){
-    return true
+  validEntry(inp:number){
+    if(inp > this.low_t && inp < this.high_t)
+      return true;
+    else
+      return false;
+  }
+  next(){
+    this.low_t = this.low_t + 10;
+    this.high_t = this.high_t + 10;
+  }
+  back(){
+    if(this.low_t > 0)
+    {
+      this.low_t = this.low_t  - 10;
+      this.high_t = this.high_t - 10;
+    }
   }
 
 
