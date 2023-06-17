@@ -1,5 +1,15 @@
 <h2>{{value}}</h2>
 <div class="container">
+    <select name="filter" id="" class="filter-box">
+        <option value="default">Default</option>
+        <option value="price-low-high">Price: Low to High</option>
+        <option value="price-high-low">Price: High to Low</option>
+        <option value="alphabetic-A-Z">Alphabetic: A-Z</option>
+        <option value="alphabetic-Z-A">Alphabetic: Z-A</option>
+    </select>
+    <label for="filter" class="filter-box">Sorting: </label>
+
+    
     <div *ngFor="let car of cars">
         <div *ngIf="validEntry(car.id)" class="car-info">
             <div class="car-text">
@@ -16,7 +26,6 @@
         </div>
     </div>
     <div class="bottom">
-        <div (click)="next()" class="text">Next >></div>
-        <div (click)="back()" class="text">Back <<</div>
+        <div (click)="next()" class="text">Next >></div> <div (click)="back()" class="text">Back <<</div>
     </div>
 </div>

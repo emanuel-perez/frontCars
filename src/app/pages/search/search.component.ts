@@ -15,9 +15,9 @@ export class SearchComponent implements OnInit {
   allCars!:Subscription;
   cars:any[] = [];
   count:number = 0;
-  idArray:number[]=[];
   low_t = 0;
   high_t = 11;
+  carNumber!:number;
 
   constructor(private uiService: UiService, private dataService:DataService) { 
 
@@ -34,6 +34,7 @@ export class SearchComponent implements OnInit {
         i = i + 1;
         r.id = i;
       })
+      this.carNumber = i;
 
       //console.log(this.cars);
     })

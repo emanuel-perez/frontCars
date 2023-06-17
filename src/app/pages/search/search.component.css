@@ -26,6 +26,7 @@
 }
 .bottom{
     margin-left: 150px;
+    float: left;
 }
 .container{
     height: fit-content;
@@ -48,4 +49,7 @@
 .info-text{
     font-size: small;
     line-height: 10px;
+}
+.filter-box{
+    float:right;
 }
