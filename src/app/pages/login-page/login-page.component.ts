@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { DataService } from 'src/app/services/data.service';
+import { Subscription } from 'rxjs';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,11 +13,28 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  loginSub!:Subscription;
+  userSub!:Subscription;
+
+  validUsername:boolean = false;
+  loginAttempt:boolean = false;
+  loginFail!:boolean;
+  newUsername:boolean = false;
+
+  currentUsername!:string;
+
+  constructor(private fb:FormBuilder, private dataService:DataService, private router:Router, private uiService: UiService) { }
 
   ngOnInit(): void {
+    this.loginSub = this.uiService.getUsernameStatus().subscribe(r => {
+      this.validUsername = r;
+    });
+    this.userSub = this.uiService.getUsername().subscribe(r =>{
+      this.currentUsername = r;
+    })
   }
 
+  // form grups
   loginInfo = this.fb.group({
     username:['',{validators:[
       Validators.required
@@ -22,5 +44,62 @@ export class LoginPageComponent implements OnInit {
     ]}]
 
   });
+
+  signUpInfo = this.fb.group({
+    newName:['',{validators:[
+      Validators.required
+    ]}],
+    newPass:['',{validators:[
+      Validators.required
+    ]}]
+  });
+
+  // Login functions
+
+  onSubmit(){
+    if(this.loginInfo.valid) {
+      this.loginAttempt = !this.loginAttempt;
+      console.log("login attempted...")
+      this.dataService.login(this.loginInfo.get('username')?.value,this.loginInfo.get('password')?.value).subscribe(r => { 
+        this.validUsername = r;
+        if(r == true)
+        {
+          this.uiService.setUsername(this.loginInfo.get('username')?.value)
+          this.uiService.setUsernameStatus(true);
+          this.loginFail = false;
+        }
+          
+        else
+        {
+          this.loginFail = true;
+        }
+      });
+    }
+  }
+
+  // Get Functions for the forms
+
+    //Login
+  get username():any{
+    return this.loginInfo.get("username")
+  }
+  get password():any{
+    return this.loginInfo.get("password")
+  }
+    // Signup
+  get newName():any{
+    return this.signUpInfo.get('newName')
+  }
+  get newPass():any{
+    return this.signUpInfo.get('newPass')
+  }
+
+  // Set functions for the forms
+  set username(inp:string){
+    this.loginInfo.setValue({username:inp})
+  }
+  set password(inp:string){
+    this.loginInfo.setValue({password:inp})
+  }
 
 }

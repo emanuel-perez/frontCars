@@ -1,8 +1,12 @@
 
-<form class="login-box" [formGroup]="loginInfo">
+<form class="window" (ngSubmit)="onSubmit()" [formGroup]="loginInfo" *ngIf="!loginAttempt && !validUsername">
     <h3>Login</h3>
-    <label for="">Username:</label>
-    <input type="text" formControlName="">
-    <label for="">Password:</label>
-    <input type="text" formControlName="">
+    <label for="username">Username:</label>
+    <input type="text" class="box" formControlName="username">
+    <label *ngIf="username.invalid && (username.touched || username.dirty)" for="username-alert" class="alert">Please Enter A Valid Username</label>
+    <label for="pass">Password:</label>
+    <input type="text" class="box" formControlName="password">
+    <label *ngIf="password.invalid && (password.touched || password.dirty)" for="pass-alert" class="alert">Please Enter A Valid Password</label>
+
+    <input type="submit" class="btn">
 </form>

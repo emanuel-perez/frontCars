@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UiService {
   private searchSubject = new BehaviorSubject<string>("all");
+  private statusSubject = new BehaviorSubject<boolean>(false);
+  private userSubject = new BehaviorSubject<string>("default");
 
   constructor() { }
 
@@ -15,5 +17,21 @@ export class UiService {
   }
   getSearchValue(){
     return this.searchSubject.asObservable();
+  }
+
+  // Login UI functions
+  setUsernameStatus(inp:boolean){
+    this.statusSubject.next(inp);
+  }
+
+  getUsernameStatus(){
+    return this.statusSubject.asObservable();
+  }
+
+  setUsername(inp:string){
+    this.userSubject.next(inp);
+  }
+  getUsername(){
+    return this.userSubject.asObservable();
   }
 }
