@@ -11,10 +11,10 @@
 
     
     <div *ngFor="let car of cars">
-        <div class="box" [ngStyle]="{'background-color':colorEx}">
-            
-        </div>
         <div *ngIf="validEntry(car.id)" class="car-info">
+            <div class="box" [ngStyle]="{'background-color':colorCheck(car.ExteriorColor)}">
+
+            </div>
             <div class="car-text">
                 {{car.Make}}
                 {{car.Model}}
