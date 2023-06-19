@@ -14,6 +14,8 @@ export class CatalogComponent implements OnInit {
   subAllMakes!:Subscription;
   allMakes!:any;
 
+  allPrices = ["under $5,000", "under $10,000", "under $20,000", "under $50,000", "over $50,000"]
+
   constructor(private dataservice:DataService, private uiservice: UiService, private router:Router) { }
 
   ngOnInit(): void {
