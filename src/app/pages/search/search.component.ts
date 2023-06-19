@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   high_t = 11;
   carNumber!:number;
 
-  colorEx:string = "white";
+  colorEx:string = "black";
 
   constructor(private uiService: UiService, private dataService:DataService) { 
 
