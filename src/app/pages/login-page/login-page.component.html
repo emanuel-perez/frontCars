@@ -8,8 +8,8 @@
     <input type="text" class="box" formControlName="password">
     <label *ngIf="password.invalid && (password.touched || password.dirty)" for="pass-alert" class="alert">Please Enter A Valid Password</label>
 
-    <a class="user">New User?</a>
-    <input type="submit" (click)="newUser()" class="btn">
+    <a class="user" (click)="newUser()">New User?</a>
+    <input type="submit" class="btn">
 </form>
 
 <form *ngIf="loginFail" class="window" (ngSubmit)="goBack()">
@@ -33,5 +33,8 @@
 
 <div *ngIf="validUsername" class="window">
     <h4>Welcome {{currentUsername}}!</h4>
+    <h5>Insert New Vehicle for sale: </h5>
+    <h5>Cart: </h5>
+    <h5>Personal Settings</h5>
     <button class="btn3" (click)="signOut()">Sign Out</button>
 </div>
