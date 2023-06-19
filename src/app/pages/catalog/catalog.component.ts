@@ -25,6 +25,7 @@ export class CatalogComponent implements OnInit {
     })
   }
 
+  // Go to search
   searchSub(value:string){
     this.uiservice.setSearch(value);
     this.router.navigate(['/search'])

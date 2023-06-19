@@ -3,8 +3,9 @@
     <div *ngFor="let make of allMakes" class="makeBox" (click)="searchSub(make)">
         {{make}}
     </div>
+    <br>
     <h2>Search By Price</h2>
-    <div *ngFor="let price of allPrices" class="makeBox">
+    <div *ngFor="let price of allPrices" class="priceBox">
         {{price}}
     </div>
 </div>

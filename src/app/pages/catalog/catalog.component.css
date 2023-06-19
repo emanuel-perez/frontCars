@@ -12,3 +12,12 @@
 .makeBox:hover{
     cursor: pointer;
 }
+.priceBox{
+    height: 50px;
+    width: 100px;
+    float: left;
+    align-items: center;
+    text-align:center ;
+    font-size: large;
+    color: red;
+}
