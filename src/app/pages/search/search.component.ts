@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
+import { LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-search',
@@ -19,6 +20,8 @@ export class SearchComponent implements OnInit {
   high_t = 11;
   carNumber!:number;
 
+  colorEx!:string;
+
   constructor(private uiService: UiService, private dataService:DataService) { 
 
   }
@@ -29,6 +32,7 @@ export class SearchComponent implements OnInit {
     })
     this.allCars = this.dataService.retrieveAllForMake(this.value).subscribe(r => {
       this.cars = r;
+      this.colorEx = r.ExteriorColor.toLowerCase();
       var i = 0;
       this.cars.forEach(r =>{
         i = i + 1;
