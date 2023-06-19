@@ -9,5 +9,29 @@
     <label *ngIf="password.invalid && (password.touched || password.dirty)" for="pass-alert" class="alert">Please Enter A Valid Password</label>
 
     <a class="user">New User?</a>
-    <input type="submit" class="btn">
+    <input type="submit" (click)="newUser()" class="btn">
 </form>
+
+<form *ngIf="loginFail" class="window" (ngSubmit)="goBack()">
+    <h3>Wrong Username and Password Combination</h3>
+    <h4>Please Try Again</h4>
+    <input type="submit" class="btn" value="Back">
+</form>
+
+<form *ngIf="newUsername" class="window" [formGroup]="signUpInfo">
+    <h3>Sign Up</h3>
+    <label for="newUsername">Username</label>
+    <input type="text" class="box" formControlName="newName">
+    <label for="newPassword">Password</label>
+    <input type="text" class="box" formControlName="newPass">
+
+    <div class="side">
+        <button class="btn2" (click)="goBack2()" type="button">Back</button> <button class="btn2" (click)="submitUser()" type="button" [disabled]="!loginInfo.valid">Submit</button>
+    </div>
+    
+</form>
+
+<div *ngIf="validUsername" class="window">
+    <h4>Welcome {{currentUsername}}!</h4>
+    <button class="btn3" (click)="signOut()">Sign Out</button>
+</div>

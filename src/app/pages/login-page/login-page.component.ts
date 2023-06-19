@@ -77,6 +77,39 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
+  submitUser(){
+    this.loginAttempt = false;
+    this.newUsername = false;
+    this.dataService.newUser(this.signUpInfo.get('newName')?.value,this.signUpInfo.get('newPass')?.value).subscribe(r => {
+      if(r)
+      {
+        console.log("new user made!");
+      }
+      else
+        console.log("username already exists")
+    });
+  }
+
+  // Back Functions
+  goBack(){
+    this.loginAttempt = !this.loginAttempt;
+    this.loginFail = false;
+  }
+  newUser(){
+    this.loginAttempt = !this.loginAttempt;
+    this.newUsername = true;
+  }
+  goBack2(){
+    this.loginAttempt = false;
+    this.newUsername = false;
+  }
+
+  signOut(){
+    this.uiService.setUsernameStatus(false);
+    this.loginAttempt = false;
+    this.currentUsername = '';
+  }
+
   // Get Functions for the forms
 
     //Login
