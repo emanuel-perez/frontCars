@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   high_t = 11;
   carNumber!:number;
 
-  colorEx!:string;
+  colorEx:string = "white";
 
   constructor(private uiService: UiService, private dataService:DataService) { 
 
@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit {
     })
     this.allCars = this.dataService.retrieveAllForMake(this.value).subscribe(r => {
       this.cars = r;
-      this.colorEx = r.ExteriorColor.toLowerCase();
+      //this.colorEx = r.ExteriorColor.toLowerCase();
       var i = 0;
       this.cars.forEach(r =>{
         i = i + 1;
