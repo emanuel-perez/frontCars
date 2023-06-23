@@ -26,15 +26,16 @@
     <input type="text" class="box" formControlName="newPass">
 
     <div class="side">
-        <button class="btn2" (click)="goBack2()" type="button">Back</button> <button class="btn2" (click)="submitUser()" type="button" [disabled]="!loginInfo.valid">Submit</button>
+        <button class="btn2" (click)="goBack2()" type="button">Back</button> <button class="btn2" (click)="submitUser()" type="button" [disabled]="newPass.invalid || newName.invalid">Submit</button>
     </div>
     
 </form>
 
 <div *ngIf="validUsername" class="window">
     <h4>Welcome {{currentUsername}}!</h4>
-    <h5>Insert New Vehicle for sale: </h5>
-    <h5>Cart: </h5>
-    <h5>Personal Settings</h5>
+    <div class="box2">Add New Car</div>
+    <div class="box2">Cart</div>
+    <div class="box2">Account Settings</div>
+
     <button class="btn3" (click)="signOut()">Sign Out</button>
 </div>

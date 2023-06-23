@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SearchComponent } from './pages/search/search.component';
+import { OrderByPipe } from './components/orderby';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     CatalogComponent,
     LoginPageComponent,
-    SearchComponent
+    SearchComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

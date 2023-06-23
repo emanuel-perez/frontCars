@@ -135,4 +135,11 @@ export class LoginPageComponent implements OnInit {
     this.loginInfo.setValue({password:inp})
   }
 
+  set newName(inp:string){
+    this.signUpInfo.setValue({newName:inp})
+  }
+  set newPass(inp:string){
+    this.signUpInfo.setValue({newPass:inp})
+  }
+
 }

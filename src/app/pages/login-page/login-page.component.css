@@ -25,6 +25,19 @@
     max-width: 200px;
     margin-left: 25%;
 }
+.box2{
+    background-color: aliceblue;
+    align-items: center;
+    height: 30px;
+    width: 200px;
+    margin-left: 25%;
+    padding-top: 15px;
+    border: 1px solid black;
+}
+.box2:hover{
+    cursor: pointer;
+    background-color:silver;
+}
 .btn{
     width: 100px;
     margin-top: 10px;

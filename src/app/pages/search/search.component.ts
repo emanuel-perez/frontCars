@@ -3,12 +3,16 @@ import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { LowerCasePipe } from '@angular/common';
+import { OrderByPipe } from 'src/app/components/orderby';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
+
 })
+
+
 export class SearchComponent implements OnInit {
 
   value!:string;
@@ -21,6 +25,7 @@ export class SearchComponent implements OnInit {
   carNumber!:number;
 
   colorEx:string = "black";
+  orderBy:string = "default";
 
   constructor(private uiService: UiService, private dataService:DataService) { 
 
@@ -67,6 +72,7 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  // Decide the color
   colorCheck(inp:string){
     var tmp = inp.toLowerCase();
     if(tmp.includes("gray") || tmp.includes("magnetic") || tmp.includes("granite") || tmp.includes("mineral") || tmp.includes("pewter") || tmp.includes("gunmetal") || tmp.includes("grey") || tmp.includes("lunar") )

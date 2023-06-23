@@ -1,16 +1,18 @@
 <h2>{{value}}</h2>
 <div class="container">
-    <select name="filter" id="" class="filter-box">
+    <select name="filter" id="" class="filter-box" [(ngModel)]="orderBy">
         <option value="default">Default</option>
-        <option value="price-low-high">Price: Low to High</option>
-        <option value="price-high-low">Price: High to Low</option>
-        <option value="alphabetic-A-Z">Alphabetic: A-Z</option>
-        <option value="alphabetic-Z-A">Alphabetic: Z-A</option>
+        <option value="priceLH">Price: Low to High</option>
+        <option value="priceHL">Price: High to Low</option>
+        <option value="mileageLH">Mileage: Low to High</option>
+        <option value="mileageHL">Mileage: High to Low</option>
+        <option value="yearLH">Year: Low to High</option>
+        <option value="yearHL">Year: High to Low</option>
     </select>
     <label for="filter" class="filter-box">Sorting: </label>
 
     
-    <div *ngFor="let car of cars">
+    <div *ngFor="let car of cars | orderby:orderBy">
         <div *ngIf="validEntry(car.id)" class="car-info">
             <div class="box" [ngStyle]="{'background-color':colorCheck(car.ExteriorColor)}">
 
