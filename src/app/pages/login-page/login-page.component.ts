@@ -20,6 +20,7 @@ export class LoginPageComponent implements OnInit {
   loginAttempt:boolean = false;
   loginFail!:boolean;
   newUsername:boolean = false;
+  signupFail!:boolean;
 
   currentUsername!:string;
 
@@ -78,15 +79,17 @@ export class LoginPageComponent implements OnInit {
   }
 
   submitUser(){
-    this.loginAttempt = false;
     this.newUsername = false;
     this.dataService.newUser(this.signUpInfo.get('newName')?.value,this.signUpInfo.get('newPass')?.value).subscribe(r => {
       if(r)
       {
+        this.signupFail = false;
         console.log("new user made!");
       }
-      else
-        console.log("username already exists")
+      else{
+        console.log("user exists");
+        this.signupFail = true;
+      }
     });
   }
 
@@ -94,6 +97,7 @@ export class LoginPageComponent implements OnInit {
   goBack(){
     this.loginAttempt = !this.loginAttempt;
     this.loginFail = false;
+    this.signupFail = false;
   }
   newUser(){
     this.loginAttempt = !this.loginAttempt;

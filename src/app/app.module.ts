@@ -11,12 +11,14 @@ import { CatalogComponent } from './pages/catalog/catalog.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SearchComponent } from './pages/search/search.component';
 import { OrderByPipe } from './components/orderby';
+import { NewEntryComponent } from './pages/new-entry/new-entry.component';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
   {path:'catalog', component:CatalogComponent},
   {path: 'login', component:LoginPageComponent},
-  {path:'search', component:SearchComponent}
+  {path:'search', component:SearchComponent},
+  {path:'newEntry', component:NewEntryComponent}
 ]
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     CatalogComponent,
     LoginPageComponent,
     SearchComponent,
-    OrderByPipe
+    OrderByPipe,
+    NewEntryComponent
   ],
   imports: [
     BrowserModule,

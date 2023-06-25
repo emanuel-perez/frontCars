@@ -1,0 +1,60 @@
+.window{
+    position: absolute;
+    width: 400px;
+    max-height: 1600px;
+    background-color: rgb(255, 255, 255);
+    left: 33%;
+    margin-top: 1%;
+    border: 1px solid black;
+    text-align: center;
+    display: grid;
+}
+.box{
+    max-width: 200px;
+    margin-left: 25%;
+}
+.box2{
+    background-color: aliceblue;
+    align-items: center;
+    height: 30px;
+    width: 200px;
+    margin-left: 25%;
+    padding-top: 15px;
+    border: 1px solid black;
+}
+.box2:hover{
+    cursor: pointer;
+    background-color:silver;
+}
+.btn{
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 37.5%;
+    margin-bottom: 1%;
+}
+.btn2{
+    width: 100px;
+    margin-bottom: 1%;
+    margin-top: 10px;
+}
+.btn3{
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 1%;
+    margin-left: 25%;
+}
+.alert{
+    color: red;
+
+}
+.user:hover{
+    color: darkblue;
+}
+.user{
+    color:blue;
+    cursor: pointer;
+}
+.side{
+    align-items: center;
+    position: sticky;
+}

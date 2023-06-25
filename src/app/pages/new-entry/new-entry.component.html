@@ -1,0 +1,14 @@
+<form class="window" (ngSubmit)="submitCar()" [formGroup]="carForm" *ngIf="!validUsername">
+    <h3>Car Submission</h3>
+    <label for="username">Year:</label>
+    <input type="text" class="box" formControlName="Year">
+    <label *ngIf="Year.invalid && (Year.touched || Year.dirty)" for="username-alert" class="alert">Please Enter A Valid Year</label>
+    <label for="pass">Make:</label>
+    <input type="text" class="box" formControlName="Make">
+    <label *ngIf="Make.invalid && (Make.touched || Make.dirty)" for="pass-alert" class="alert">Please Enter A Valid Make</label>
+    <label for="pass">Model:</label>
+    <input type="text" class="box" formControlName="Model">
+    <label *ngIf="Make.invalid && (Make.touched || Make.dirty)" for="pass-alert" class="alert">Please Enter A Valid Model</label>
+
+    <input type="submit" class="btn">
+</form>

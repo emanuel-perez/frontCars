@@ -18,6 +18,13 @@
     <input type="submit" class="btn" value="Back">
 </form>
 
+<form *ngIf="signupFail" class="window" (ngSubmit)="goBack()">
+    <h3>Username already exists</h3>
+    <h4>Please Try Again</h4>
+    <input type="submit" class="btn" value="Back">
+</form>
+
+
 <form *ngIf="newUsername" class="window" [formGroup]="signUpInfo">
     <h3>Sign Up</h3>
     <label for="newUsername">Username</label>
