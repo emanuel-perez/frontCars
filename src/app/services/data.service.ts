@@ -15,8 +15,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DataService {
-  baseURL = 'http://localhost:10000';
-  //baseURL = 'https://carserverapi.azurewebsites.net/'
+  //baseURL = 'http://localhost:10000';
+  baseURL = 'https://carserverapi.azurewebsites.net/'
   
 
   constructor(private http:HttpClient) { }
@@ -25,8 +25,14 @@ export class DataService {
     const url = this.baseURL + '/catalog/makes';
     return this.http.get<any>(url,httpOptions);
   }
+
   retrieveAllForMake(makeName:string){
     const url = this.baseURL + '/catalog/make/' + makeName;
+    return this.http.get<any>(url,httpOptions);
+  }
+
+  retrieveVehicleInfo(vin:string){
+    const url = this.baseURL + '/vin/' + vin;
     return this.http.get<any>(url,httpOptions);
   }
 

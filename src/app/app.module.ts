@@ -12,13 +12,15 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SearchComponent } from './pages/search/search.component';
 import { OrderByPipe } from './components/orderby';
 import { NewEntryComponent } from './pages/new-entry/new-entry.component';
+import { VehicleComponent } from './pages/vehicle/vehicle.component';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
   {path:'catalog', component:CatalogComponent},
   {path: 'login', component:LoginPageComponent},
   {path:'search', component:SearchComponent},
-  {path:'newEntry', component:NewEntryComponent}
+  {path:'newEntry', component:NewEntryComponent},
+  {path:'vehicle', component:VehicleComponent}
 ]
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     LoginPageComponent,
     SearchComponent,
     OrderByPipe,
-    NewEntryComponent
+    NewEntryComponent,
+    VehicleComponent
   ],
   imports: [
     BrowserModule,

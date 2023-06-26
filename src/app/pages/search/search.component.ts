@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { LowerCasePipe } from '@angular/common';
 import { OrderByPipe } from 'src/app/components/orderby';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -27,7 +28,7 @@ export class SearchComponent implements OnInit {
   colorEx:string = "black";
   orderBy:string = "default";
 
-  constructor(private uiService: UiService, private dataService:DataService) { 
+  constructor(private uiService: UiService, private dataService:DataService, private router:Router) { 
 
   }
 
@@ -71,6 +72,13 @@ export class SearchComponent implements OnInit {
       this.high_t = this.high_t - 10;
     }
   }
+
+  goCarInfo(id:string){
+    this.uiService.setVIN(id);
+    this.router.navigate(["/vehicle"]);
+  }
+
+
 
   // Decide the color
   colorCheck(inp:string){

@@ -114,6 +114,11 @@ export class LoginPageComponent implements OnInit {
     this.currentUsername = '';
   }
 
+  // Router functions
+  goNewCar(){
+    this.router.navigate(["/newEntry"]);
+  }
+
   // Get Functions for the forms
 
     //Login

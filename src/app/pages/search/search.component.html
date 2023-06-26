@@ -13,7 +13,7 @@
 
     
     <div *ngFor="let car of cars | orderby:orderBy">
-        <div *ngIf="validEntry(car.id)" class="car-info">
+        <div *ngIf="validEntry(car.id)" class="car-info" (click)="goCarInfo(car.VIN)">
             <div class="box" [ngStyle]="{'background-color':colorCheck(car.ExteriorColor)}">
 
             </div>

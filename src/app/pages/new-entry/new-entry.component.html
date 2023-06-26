@@ -8,7 +8,11 @@
     <label *ngIf="Make.invalid && (Make.touched || Make.dirty)" for="pass-alert" class="alert">Please Enter A Valid Make</label>
     <label for="pass">Model:</label>
     <input type="text" class="box" formControlName="Model">
-    <label *ngIf="Make.invalid && (Make.touched || Make.dirty)" for="pass-alert" class="alert">Please Enter A Valid Model</label>
+    <label *ngIf="Make.invalid && (Model.touched || Model.dirty)" for="pass-alert" class="alert">Please Enter A Valid Model</label>
 
     <input type="submit" class="btn">
 </form>
+
+<div class="window" *ngIf="validUsername">
+    <h3>Please Login To Submit A New Car Entry</h3>
+</div>

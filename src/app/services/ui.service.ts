@@ -8,6 +8,7 @@ export class UiService {
   private searchSubject = new BehaviorSubject<string>("all");
   private statusSubject = new BehaviorSubject<boolean>(false);
   private userSubject = new BehaviorSubject<string>("default");
+  private vinSubject = new BehaviorSubject<string>("0000");
 
   constructor() { }
 
@@ -17,6 +18,15 @@ export class UiService {
   }
   getSearchValue(){
     return this.searchSubject.asObservable();
+  }
+
+  // VIN search
+  setVIN(input:string){
+    this.vinSubject.next(input);
+  }
+
+  getVIN(){
+    return this.vinSubject.asObservable();
   }
 
   // Login UI functions
