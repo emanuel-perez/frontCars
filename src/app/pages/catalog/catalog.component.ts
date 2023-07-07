@@ -14,7 +14,7 @@ export class CatalogComponent implements OnInit {
   subAllMakes!:Subscription;
   allMakes!:any;
 
-  allPrices = ["under $5,000", "$5,000 - $10,000", "$10,000 - $20,000", "$20,000 - $50,000", "over $50,000"]
+  allPrices = ["under $10,000", "$10,000 - $20,000", "$20,000 - $50,000", "$50,000 - $100,000", "Over $100,000"]
 
   constructor(private dataservice:DataService, private uiservice: UiService, private router:Router) { }
 
@@ -29,6 +29,10 @@ export class CatalogComponent implements OnInit {
   searchSub(value:string){
     this.uiservice.setSearch(value);
     this.router.navigate(['/search'])
+  }
+
+  searchByPrice(value:string){
+
   }
 
 

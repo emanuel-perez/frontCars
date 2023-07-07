@@ -5,7 +5,7 @@
     <input type="text" class="box" formControlName="username">
     <label *ngIf="username.invalid && (username.touched || username.dirty)" for="username-alert" class="alert">Please Enter A Valid Username</label>
     <label for="pass">Password:</label>
-    <input type="text" class="box" formControlName="password">
+    <input type="password" class="box" formControlName="password">
     <label *ngIf="password.invalid && (password.touched || password.dirty)" for="pass-alert" class="alert">Please Enter A Valid Password</label>
 
     <a class="user" (click)="newUser()">New User?</a>
@@ -27,13 +27,16 @@
 
 <form *ngIf="newUsername" class="window" [formGroup]="signUpInfo">
     <h3>Sign Up</h3>
-    <label for="newUsername">Username</label>
+    <label for="newUsername">Username:</label>
     <input type="text" class="box" formControlName="newName">
-    <label for="newPassword">Password</label>
-    <input type="text" class="box" formControlName="newPass">
+    <label for="newPassword">Password:</label>
+    <input type="password" class="box" formControlName="newPass">
+    <label for="rePass">Repeat Password:</label>
+    <input type="password" class="box" formControlName="rePass">
+    <label for="checkSame" *ngIf="newPass.value != rePass.value && (newPass.touched && rePass.touched)" class="alert">Passwords are not matching</label>
 
     <div class="side">
-        <button class="btn2" (click)="goBack2()" type="button">Back</button> <button class="btn2" (click)="submitUser()" type="button" [disabled]="newPass.invalid || newName.invalid">Submit</button>
+        <button class="btn2" (click)="goBack2()" type="button">Back</button> <button class="btn2" (click)="submitUser()" type="button" [disabled]="newPass.invalid || newName.invalid || rePass.invalid || newPass.value != rePass.value">Submit</button>
     </div>
     
 </form>

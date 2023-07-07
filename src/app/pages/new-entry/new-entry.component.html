@@ -1,16 +1,139 @@
 <form class="window" (ngSubmit)="submitCar()" [formGroup]="carForm" *ngIf="!validUsername">
     <h3>Car Submission</h3>
-    <label for="username">Year:</label>
-    <input type="text" class="box" formControlName="Year">
-    <label *ngIf="Year.invalid && (Year.touched || Year.dirty)" for="username-alert" class="alert">Please Enter A Valid Year</label>
-    <label for="pass">Make:</label>
-    <input type="text" class="box" formControlName="Make">
-    <label *ngIf="Make.invalid && (Make.touched || Make.dirty)" for="pass-alert" class="alert">Please Enter A Valid Make</label>
-    <label for="pass">Model:</label>
-    <input type="text" class="box" formControlName="Model">
-    <label *ngIf="Make.invalid && (Model.touched || Model.dirty)" for="pass-alert" class="alert">Please Enter A Valid Model</label>
+    <div class="section" *ngIf="section == 1">
+        <h4>Core Info:</h4>
+        <label for="year">Year:</label>
+        <input type="number" class="box" formControlName="Year">
+        <label *ngIf="Year.invalid && (Year.touched || Year.dirty)" for="username-alert" class="alert">Please Enter A Valid Year</label>
+        <label for="make">Make:</label>
+        <input type="text" class="box" formControlName="Make">
+        <label *ngIf="Make.invalid && (Make.touched || Make.dirty)" for="pass-alert" class="alert">Please Enter A Valid Make</label>
+        <label for="model">Model:</label>
+        <input type="text" class="box" formControlName="Model">
+        <label *ngIf="Model.invalid && (Model.touched || Model.dirty)" for="pass-alert" class="alert">Please Enter A Valid Model</label>
+        <label for="price">Price:</label>
+        <input type="number" class="box" formControlName="Price">
+        <label *ngIf="Price.invalid && (Price.touched || Price.dirty)" for="pass-alert" class="alert">Please Enter A Valid Price</label>
+        <label for="mileage">Mileage:</label>
+        <input type="number" class="box" formControlName="Mileage">
+        <label *ngIf="Mileage.invalid && (Mileage.touched || Mileage.dirty)" for="pass-alert" class="alert">Please Enter A Valid Mileage</label>
+        <button class="btn" (click)="nextSection()" [disabled]="!   firstSecValid()">Next Section</button>
+    </div>
+    <div class="section" *ngIf="section == 2" >
+        <h4>Extra Details</h4>
+        <label for="inColor">Used/New:</label>
+        <select name="used-new" id="UN" formControlName="Used" class="box">
+            <option value="Used">Used</option>
+            <option value="New">New</option>
+        </select>
 
-    <input type="submit" class="btn">
+
+        <label for="exColor">Drivetrain:</label>
+        <input type="text" class="box" formControlName="Drivetrain">
+        <label *ngIf="Drivetrain.invalid && (Drivetrain.touched || Drivetrain.dirty)" for="username-alert" class="alert">Please Enter A Valid Drivetrain</label>
+        <label for="exColor">Min MPG:</label>
+        <input type="number" class="box" formControlName="MinMPG">
+        <label *ngIf="MinMPG.invalid && (MinMPG.touched || MinMPG.dirty)" for="username-alert" class="alert">Please Enter A Valid MinMPG</label>
+        <label for="exColor">Max MPG:</label>
+        <input type="number" class="box" formControlName="MaxMPG">
+        <label *ngIf="MinMPG.invalid && (MaxMPG.touched || MaxMPG.dirty)" for="username-alert" class="alert">Please Enter A Valid MaxMPG</label>
+        <label for="exColor">Fuel Type:</label>
+        <input type="text" class="box" formControlName="FuelType">
+        <label *ngIf="FuelType.invalid && (FuelType.touched || FuelType.dirty)" for="username-alert" class="alert">Please Enter A Valid Fuel Type</label>
+        <label for="exColor">Exterior Color:</label>
+        <input type="text" class="box" formControlName="ExteriorColor">
+        <label *ngIf="ExteriorColor.invalid && (ExteriorColor.touched || ExteriorColor.dirty)" for="username-alert" class="alert">Please Enter A Valid Exterior Color</label>
+        <label for="inColor">Interior Color:</label>
+        <input type="text" class="box" formControlName="InteriorColor">
+        <label *ngIf="InteriorColor.invalid && (InteriorColor.touched || InteriorColor.dirty)" for="username-alert" class="alert">Please Enter A Valid Interior Color</label>
+        <label for="VIN">VIN:</label>
+        <input type="text" class="box" formControlName="VIN">
+        <label *ngIf="VIN.invalid && (VIN.touched || VIN.dirty)" for="username-alert" class="alert">Please Enter A Valid VIN</label>
+        <label for="Transmission">Transmission:</label>
+        <input type="text" class="box" formControlName="Transmission">
+        <label *ngIf="Transmission.invalid && (Transmission.touched || Transmission.dirty)" for="username-alert" class="alert">Please Enter A Valid Transmission</label>
+        <label for="Engine">Engine:</label>
+        <input type="text" class="box" formControlName="Engine">
+        <label *ngIf="Engine.invalid && (Engine.touched || Engine.dirty)" for="username-alert" class="alert">Please Enter A Valid Engine</label>
+        <label for="Engine">Stock #:</label>
+        <input type="text" class="box" formControlName="stockNum">
+        <label *ngIf="stockNum.invalid && (stockNum.touched || stockNum.dirty)" for="username-alert" class="alert">Please Enter A Valid Stock Num</label>
+    
+        <div>
+            <button class="btn2" (click)="backSection()">Back</button>
+            <button class="btn3" (click)="nextSection()" [disabled]="!secondSecValid()">Next Section</button>
+    
+        </div>
+    </div>
+
+    <div class="section" *ngIf="section == 3">
+        <h4>Dealer Info</h4>
+        <label for="exColor">Seller Type:</label>
+        <input type="text" class="box" formControlName="SellerType">
+        <label for="exColor">Seller Name:</label>
+        <input type="text" class="box" formControlName="SellerName">
+        <label for="exColor">Street Name:</label>
+        <input type="text" class="box" formControlName="StreetName">
+        <label *ngIf="StreetName.invalid && (StreetName.touched || StreetName.dirty)" for="username-alert" class="alert">Please Enter A Valid Street Name</label>
+        <label for="exColor">State:</label>
+        <input type="text" class="box" formControlName="State">
+        <label *ngIf="State.invalid && (State.touched || State.dirty)" for="username-alert" class="alert">Please Enter A Valid State</label>
+        <label for="exColor">Zipcode:</label>
+        <input type="number" class="box" formControlName="Zipcode">
+        <label *ngIf="Zipcode.invalid && (Zipcode.touched || Zipcode.dirty)" for="username-alert" class="alert">Please Enter A Valid Zipcode    </label>
+        
+
+        <div>
+            <button class="btn2" (click)="backSection()">Back</button>
+            <button class="btn3" (click)="nextSection()" [disabled]="!secondSecValid()">Next Section</button>
+        </div>
+
+    </div>
+    <div class="section" *ngIf="section == 4">
+        <h4>Confirm</h4>
+        <h4>Core Info</h4>
+        <p>
+            Year: {{Year.value}} <br>   
+            Make: {{Make.value}} <br>
+            Model: {{Model.value}} <br>
+            Price: {{Price.value}} <br>
+            Mileage: {{Mileage.value}}
+        </p>
+        <h4>Extra Details</h4>
+        <p>
+            Used/New: {{Used.value}} <br>
+            Drivetrain: {{Drivetrain.value}} <br>
+            MinMPG: {{MinMPG.value}} <br>
+            MaxMPG: {{MaxMPG.value}} <br>
+            Fuel Type: {{FuelType.value}} <br>
+            Exterior Color: {{ExteriorColor.value}} <br>
+            Interior Color: {{InteriorColor.value}} <br>
+            VIN: {{VIN.value}} <br>
+            Transmission: {{Transmission.value}} <br>
+            Engine: {{Engine.value}} <br>
+            Stock #: {{stockNum.value}}
+        </p>
+        <h4>Seller Type</h4>
+        <p>
+            Seller Type: {{SellerType.value}} <br>
+            Seller Name: {{SellerName.value}} <br>
+            Street Name: {{StreetName.value}} <br>
+            State: {{State.value}} <br>
+            Zipcode: {{Zipcode.value}}
+        </p>
+        <div>
+            <button class="btn2" (click)="backSection()">Back</button>
+            <input type="submit" class="btn3">
+        </div>
+        
+    </div>
+
+    <div class="fullBar">
+        <div class="barSection" *ngIf="section >= 2"></div>
+        <div class="barSection" *ngIf="section >= 3"></div>
+        <div class="barSection" *ngIf="section >= 4"></div>
+    </div>
+    
 </form>
 
 <div class="window" *ngIf="validUsername">

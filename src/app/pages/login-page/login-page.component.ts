@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
+/*
+To do:
+- 
+*/
 
 @Component({
   selector: 'app-login-page',
@@ -51,6 +55,9 @@ export class LoginPageComponent implements OnInit {
       Validators.required
     ]}],
     newPass:['',{validators:[
+      Validators.required
+    ]}],
+    rePass:['',{validators:[
       Validators.required
     ]}]
   });
@@ -118,7 +125,6 @@ export class LoginPageComponent implements OnInit {
   goNewCar(){
     this.router.navigate(["/newEntry"]);
   }
-
   // Get Functions for the forms
 
     //Login
@@ -134,6 +140,9 @@ export class LoginPageComponent implements OnInit {
   }
   get newPass():any{
     return this.signUpInfo.get('newPass')
+  }
+  get rePass():any{
+    return this.signUpInfo.get('rePass')
   }
 
   // Set functions for the forms

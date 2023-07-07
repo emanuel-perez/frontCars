@@ -38,18 +38,12 @@ export class SearchComponent implements OnInit {
     })
     this.allCars = this.dataService.retrieveAllForMake(this.value).subscribe(r => {
       this.cars = r;
-      /*
-      if(r.ExteriorColor)
-      */
-      //this.colorEx = r.ExteriorColor.toLowerCase();
       var i = 0;
       this.cars.forEach(r =>{
         i = i + 1;
         r.id = i;
       })
       this.carNumber = i;
-
-      //console.log(this.cars);
     })
   }
 

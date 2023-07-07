@@ -36,12 +36,15 @@
     width: 100px;
     margin-bottom: 1%;
     margin-top: 10px;
+    margin-left: 25%;
+    float: left;
 }
 .btn3{
-    width: 200px;
+    width: 100px;
     margin-top: 10px;
     margin-bottom: 1%;
-    margin-left: 25%;
+    float: left ;
+    margin-left: 5px;
 }
 .alert{
     color: red;
@@ -57,4 +60,22 @@
 .side{
     align-items: center;
     position: sticky;
+}
+.section{
+    display:contents;
+}
+.fullBar{
+    margin-top: 5px;
+    width: 400px;
+    height: 25px;
+    background-color: blue;
+}
+.barSection{
+    height: 25px;
+    width: 133px;
+    float: left;
+    background-color:lime;  
+}
+.singleLine{
+    
 }
