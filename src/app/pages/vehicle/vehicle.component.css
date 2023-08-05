@@ -1,5 +1,42 @@
 .title{
     margin-top: 5%;
-    font-size: larger;
+    font-size: x-large;
     font-weight: bolder;
+}
+.sale-text{
+    font-size: x-large;
+    color: red;
+}
+.box{
+    height: 150px;
+    width: 150px;
+    border: 1px solid black;
+}
+.left-section{
+    float: left;
+}
+.right-section{
+    margin-left: 10%;
+    float: left;
+    font-size: large;
+    color: gray;
+}
+.rightmost-section{
+    float:left;
+    margin-left:10%;
+}
+.buy-box{
+    height: 20px;
+    width: 50px;
+    background-color: red;
+    border: 1px solid black;
+    color:white;
+    text-align: center;
+}
+.buy-box:hover{
+    background-color: darkred;
+    cursor: pointer;
+}
+.rating-text{
+    margin-top:10%;
 }

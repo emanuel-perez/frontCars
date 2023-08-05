@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 
   value!:string;
+  header!:string;
   searchValueSub!:Subscription;
   allCars!:Subscription;
   cars:any[] = [];
@@ -35,8 +36,9 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.searchValueSub = this.uiService.getSearchValue().subscribe(r => {
       this.value = r;
+      this.header = r.substring(1);
     })
-    this.allCars = this.dataService.retrieveAllForMake(this.value).subscribe(r => {
+    this.allCars = this.dataService.retrieveAll(this.value).subscribe(r => {
       this.cars = r;
       var i = 0;
       this.cars.forEach(r =>{

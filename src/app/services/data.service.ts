@@ -22,13 +22,17 @@ export class DataService {
 
   constructor(private http:HttpClient) { }
 
-  retrieveAllMakes(){
+  retrieveAllMakes(){ // For Catelog
     const url = this.baseURL + '/catalog/makes';
     return this.http.get<any>(url,httpOptions);
   }
   
-  retrieveAllForMake(makeName:string){
-    const url = this.baseURL + '/catalog/make/' + makeName;
+  retrieveAll(inp:string){ // For Search
+    var url = "";
+    if(inp.charAt(0) == '0')
+      url = this.baseURL + '/catalog/make/' + inp.substring(1);
+    else
+      url = this.baseURL + '/price/' + inp.substring(1);
     return this.http.get<any>(url,httpOptions);
   }
 

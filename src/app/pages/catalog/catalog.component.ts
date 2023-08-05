@@ -26,8 +26,13 @@ export class CatalogComponent implements OnInit {
   }
 
   // Go to search
-  searchSub(value:string){
-    this.uiservice.setSearch(value);
+  searchSub(option:number, value:string){
+    var out = "";
+    if(option == 0)
+      out = "0" + value;
+    else
+      out = "1" + value;
+    this.uiservice.setSearch(out);
     this.router.navigate(['/search'])
   }
 

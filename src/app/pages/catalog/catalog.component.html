@@ -1,12 +1,12 @@
 <div class="catalogContainer">
     <h2>Current Available Makes</h2>
-    <div *ngFor="let make of allMakes" class="makeBox" (click)="searchSub(make)">
+    <div *ngFor="let make of allMakes" class="makeBox" (click)="searchSub(0, make)">
         {{make}}
     </div>
 </div>
 <div class="catalogContainer">
     <h2>Search By Price</h2>
-    <div *ngFor="let price of allPrices" class="priceBox" (click)="searchSub(price)">
+    <div *ngFor="let price of allPrices" class="priceBox" (click)="searchSub(1, price)">
         {{price}}
     </div>
 </div>

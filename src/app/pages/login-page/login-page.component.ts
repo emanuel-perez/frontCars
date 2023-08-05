@@ -7,7 +7,8 @@ import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
 /*
 To do:
-- 
+- Add Cart Page and Functionality (remove items from the catalog -> connect with vehicle page?)
+- Add Account Settings (page or just section)
 */
 
 @Component({

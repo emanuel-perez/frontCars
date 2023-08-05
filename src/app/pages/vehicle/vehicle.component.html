@@ -3,3 +3,48 @@
     {{vehicleProfile[0].Make}}
     {{vehicleProfile[0].Model}}
 </div>
+
+<div>
+    <div class="left-section">
+        <div class="sale-text">
+            Sale Price: {{vehicleProfile[0].Price}}
+        </div>
+        <div class="box" [ngStyle]="{'background-color':CC(vehicleProfile[0].ExteriorColor)}"></div>
+
+        <div class="rating-text">
+            <b>Car Ratings:</b>
+            <p>
+                <b>Comfort Rating:</b> {{vehicleProfile[0].ComfortRating}} <br>
+                <b>Interior Design Rating:</b> {{vehicleProfile[0].InteriorDesignRating}} <br>
+                <b>Exterior Design Rating:</b> {{vehicleProfile[0].ExteriorStylingRating}} <br>
+                <b>Performance Rating:</b> {{vehicleProfile[0].PerformanceRating}} <br>
+                <b>Value For Money Rating:</b> {{vehicleProfile[0].ValueForMoneyRating}} <br>
+                <b>Reliability Rating:</b> {{vehicleProfile[0].ReliabilityRating}} <br>
+
+            </p>
+        </div>
+    </div>
+    <div class="right-section">
+        <b>Core Information: </b>
+        <p>
+        <b>Mileage: </b> {{vehicleProfile[0].Mileage}} <br>
+        <b>Exterior Color:</b> {{vehicleProfile[0].ExteriorColor}} <br>
+        <b>Interior Color: </b>{{vehicleProfile[0].InteriorColor}} <br>
+        <b>Drive Train: </b>{{vehicleProfile[0].Drivetrain}} <br>
+        <b>MPG: </b>{{vehicleProfile[0].MinMPG}}-{{vehicleProfile[0].MaxMPG}} MPG <br>
+        <b>Fuel Type: </b>{{vehicleProfile[0].FuelType}} <br>
+        <b>Transmission: </b>{{vehicleProfile[0].Transmission}} <br>
+        <b>Engine: </b>{{vehicleProfile[0].Engine}} <br>
+        <b>VIN: </b>{{vehicleProfile[0].VIN}} <br>
+        </p>
+    </div>
+    <div class="rightmost-section">
+        <b>Seller Info:</b>
+        <p>
+            <b>{{vehicleProfile[0].SellerName}}</b> <br>
+            <b>Address: </b> {{vehicleProfile[0].StreetName}} {{vehicleProfile[0].Zipcode}} {{vehicleProfile[0].State}}
+        </p>
+        If interested, click below!
+        <div class="buy-box">Buy</div>
+    </div>
+</div>

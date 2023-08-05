@@ -14,7 +14,8 @@ import { carSub } from 'src/app/struck';
 })
 /*
 What to do:
-- Decide on the ratings and reviews sections
+- Fix the validators to work properly
+- Add default values for non-required fields
 */
 export class NewEntryComponent implements OnInit {
 
@@ -24,6 +25,9 @@ export class NewEntryComponent implements OnInit {
 
 
   validUsername:boolean = false;
+  subAttempt:boolean = false;
+  subFail:boolean = false;
+
   section = 1;
 
   constructor(private fb:FormBuilder, private dataService:DataService, private router:Router, private uiService: UiService) {}
@@ -112,23 +116,23 @@ export class NewEntryComponent implements OnInit {
       Make: this.Make.value,
       Model: this.Model.value,
       "Used/New":this.Used.value,
-      Price:this.Price.value,
-      ConsumerRating: -1.0,
-      ConsumerReviews: -1.0,
+      Price: this.Price.value,
+      ConsumerRating: -1.1,
+      ConsumerReviews: -1,
       SellerType:this.SellerType.value,
       SellerName:this.SellerName.value,
       StreetName:this.StreetName.value,
-      SellerRating:-1,
+      SellerRating:-1.1,
       SellerReviews:-1,
       State:this.State.value,
       Zipcode:this.Zipcode.value,
       DealType:"",
-      ComfortRating:-1.0,
-      InteriorDesignRating:-1.0,
-      PerformanceRating:-1.0,
-      ValueForMoneyRating:-1.0,
-      ExteriorStylingRating:-1.0,
-      RealibilityRating:-1.0,
+      ComfortRating:-1.1,
+      InteriorDesignRating:-1.1,
+      PerformanceRating:-1.1,
+      ValueForMoneyRating:-1.1,
+      ExteriorStylingRating:-1.1,
+      RealibilityRating:-1.1,
       ExteriorColor:this.ExteriorColor.value,
       InteriorColor:this.InteriorColor.value,
       Drivetrain:this.Drivetrain.value,
@@ -142,7 +146,8 @@ export class NewEntryComponent implements OnInit {
       Mileage:this.Mileage.value
     }
 
-    console.log(this.newCarSub);
+    //console.log(this.newCarSub);
+    this.subAttempt = true; // Attempt submission
     this.dataService.newEntry(this.newCarSub).subscribe(r => {
       console.log("entry added")
     })
@@ -154,12 +159,23 @@ export class NewEntryComponent implements OnInit {
   backSection(){
     this.section = this.section - 1;
   }
+  backHome(){
+    this.subAttempt = false;
+    this.subFail = false;
+    this.section = 1;
 
+  }
   firstSecValid(){
     return this.Price.valid && this.Make.valid && this.Mileage.valid && this.Model.valid && this.Year.valid;
   }
   secondSecValid(){
-    return this.ExteriorColor.valid;
+    return this.ExteriorColor.valid && this.Drivetrain.valid && this.MinMPG.valid && this.MaxMPG.valid 
+      && this.FuelType.valid && this.InteriorColor.valid && this.VIN.valid && this.Transmission.valid
+      && this.stockNum.valid && this.Engine.valid;
+  }
+  thirdSecValid(){
+    return this.SellerName.valid && this.SellerType.valid && this.StreetName.valid 
+      && this.State.valid && this.Zipcode.valid;
   }
 
   set Used(inp:string){
