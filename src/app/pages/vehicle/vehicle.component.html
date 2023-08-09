@@ -3,7 +3,6 @@
     {{vehicleProfile[0].Make}}
     {{vehicleProfile[0].Model}}
 </div>
-
 <div>
     <div class="left-section">
         <div class="sale-text">
@@ -45,6 +44,6 @@
             <b>Address: </b> {{vehicleProfile[0].StreetName}} {{vehicleProfile[0].Zipcode}} {{vehicleProfile[0].State}}
         </p>
         If interested, click below!
-        <div class="buy-box">Buy</div>
+        <div class="buy-box" (click)="buyWindow()">Buy</div>
     </div>
 </div>

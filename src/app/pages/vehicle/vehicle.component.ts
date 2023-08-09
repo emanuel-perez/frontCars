@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { colorCheck } from 'src/app/struck';
+import { Router } from '@angular/router';
 
 //declare var colorCheck:any;
 
@@ -24,7 +26,9 @@ export class VehicleComponent implements OnInit {
   currentVIN!:string;
   vehicleProfile!:any[];
 
-  constructor(private uiservice:UiService, private dataservice:DataService) { 
+  popShow:boolean = false;
+
+  constructor(private uiservice:UiService, private dataservice:DataService, private router:Router) { 
   }
 
   ngOnInit(): void {
@@ -39,6 +43,10 @@ export class VehicleComponent implements OnInit {
   
   CC(inp:string){
     return colorCheck(inp);
+  }
+
+  buyWindow(){
+    this.router.navigate(["/buy"]);
   }
 
 }

@@ -1,0 +1,28 @@
+<div>
+    The current VIN: {{currentVIN}}
+</div>
+
+<div>
+    <h1>Buy Page!</h1>
+    <div *ngIf="validVIN(currentVIN)">
+        <div *ngIf="validUsername">
+            Are you sure of the purchase: {{currentVIN}}
+        </div>
+        <div *ngIf="!validUsername">
+            Please login to buy this vehicle
+            <br>
+            <a href="/login">Go To Login Page</a>
+        </div>
+
+    </div>
+    <div *ngIf="!validVIN(currentVIN)">
+        Please pick a vehicle to purchase
+        <br>
+        <a href="/catalog">Go To Catalog</a>
+    </div>
+</div>
+
+
+<div>
+
+</div>
