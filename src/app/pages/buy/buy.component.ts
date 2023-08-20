@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 import { UiService } from 'src/app/services/ui.service';
 
@@ -14,8 +15,9 @@ export class BuyComponent implements OnInit {
 
   currentVIN:string = "";
   validUsername = false;
+  successBuy = false;
 
-  constructor(private uiservice:UiService) { }
+  constructor(private uiservice:UiService, private dataService:DataService) { }
 
   ngOnInit(): void {
     this.vinSub = this.uiservice.getVIN().subscribe(r=>{
@@ -31,6 +33,10 @@ export class BuyComponent implements OnInit {
       return false;
     else
       return true;
+  }
+  buy(car:string){
+    console.log("buying...")
+    this.dataService.buyVehicle(car).subscribe(r => console.log(this.successBuy = r));
   }
 
 }

@@ -59,4 +59,10 @@ export class DataService {
     return this.http.post<any>(url, entry, httpOptions);
   }
 
+  buyVehicle(vin:string){ // Removes the vehicle from the database
+    const url = this.baseURL + '/buy';
+    const data = {vin}
+    return this.http.post<any>(url, data, httpOptions);
+  }
+
 }
