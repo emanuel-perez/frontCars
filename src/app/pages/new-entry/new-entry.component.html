@@ -1,4 +1,4 @@
-<form class="window" (ngSubmit)="submitCar()" [formGroup]="carForm" *ngIf="!validUsername && !subAttempt">
+<form class="window" (ngSubmit)="submitCar()" [formGroup]="carForm" *ngIf="validUsername && !subAttempt">
     <h3>Car Submission</h3>
     <div class="section" *ngIf="section == 1">
         <h4>Core Info:</h4>
@@ -136,7 +136,7 @@
     
 </form>
 
-<div class="window" *ngIf="validUsername">
+<div class="window" *ngIf="!validUsername">
     <h3>Please Login To Submit A New Car Entry</h3>
 </div>
 
