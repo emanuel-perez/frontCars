@@ -16,8 +16,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DataService {
-  baseURL = 'http://localhost:10000';
-  //baseURL = 'https://carserverapi.azurewebsites.net/'
+  //baseURL = 'http://localhost:10000';
+  baseURL = 'https://carserverapi.azurewebsites.net/'
   
 
   constructor(private http:HttpClient) { }
